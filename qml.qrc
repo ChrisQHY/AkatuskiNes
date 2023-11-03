@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Game/Contra.nes</file>
+        <file>Game/ShadowLegend.nes</file>
+        <file>Game/Squirrel Fight.nes</file>
+        <file>Game/Super Mario Bros 1.nes</file>
+        <file>Game/Super Mario Bros 3.nes</file>
+        <file>Game/Zelda.nes</file>
+        <file>Game/Ninja Gaiden 3.nes</file>
+        <file>Game/Mitsume ga Tooru.nes</file>
+    </qresource>
+</RCC>
