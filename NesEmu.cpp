@@ -214,6 +214,10 @@ BusClock::BusClock(Bus *Nes, QImage *display)
 
 void BusClock::run()
 {
+    bool playFlag = false;
+    char playBuf[BUFFER_SIZE * 2];
+    int playCount = 0;
+    
     while(1) {
         if(Nes->running) {
             Nes->clock();
@@ -225,7 +229,13 @@ void BusClock::run()
                 Nes->Ppu.frame_complete = false;
                 Nes->Apu.end_frame();
                 Nes->Apu.out_count = Nes->Apu.read_samples(Nes->Apu.out_buf, BUFFER_SIZE);
-                audioDevice->write((char *)Nes->Apu.out_buf, Nes->Apu.out_count * 2);
+                memcpy(playBuf + playCount, (char *)Nes->Apu.out_buf, Nes->Apu.out_count * 2);
+                playCount += Nes->Apu.out_count * 2;
+                if(playFlag) {
+                    audioDevice->write(playBuf, playCount);
+                    playCount = 0;
+                }
+                playFlag = !playFlag;
             }
         } else {
             msleep(100);
