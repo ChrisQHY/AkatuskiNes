@@ -208,10 +208,7 @@ BusClock::BusClock(Bus *Nes, QImage *display)
         format = dev.nearestFormat(format);
     }
     audioOutput = new QAudioOutput(dev, format);
-    qreal linearVolume = QAudio::convertVolume(90 / qreal(100),
-                                               QAudio::LogarithmicVolumeScale,
-                                               QAudio::LinearVolumeScale);
-    audioOutput->setVolume(linearVolume);
+    audioOutput->setVolume(1.0);
     audioDevice = audioOutput->start();
 }
 
@@ -228,8 +225,7 @@ void BusClock::run()
                 Nes->Ppu.frame_complete = false;
                 Nes->Apu.end_frame();
                 Nes->Apu.out_count = Nes->Apu.read_samples(Nes->Apu.out_buf, BUFFER_SIZE);
-                char *buf_ptr = (char *) Nes->Apu.out_buf;
-                audioDevice->write(buf_ptr, Nes->Apu.out_count * 2);
+                audioDevice->write((char *)Nes->Apu.out_buf, Nes->Apu.out_count * 2);
             }
         } else {
             msleep(100);
