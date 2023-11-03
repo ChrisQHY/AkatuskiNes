@@ -217,16 +217,17 @@ void BusClock::run()
     bool playFlag = false;
     char playBuf[BUFFER_SIZE * 2];
     int playCount = 0;
+    QImage *img;
     
     while(1) {
         if(Nes->running) {
             Nes->clock();
             if(Nes->Ppu.frame_complete) {
-                QImage *img = new QImage((uchar *)(Nes->Ppu.frameData), 256, 240, QImage::Format_ARGB32);
+                img = new QImage((uchar *)(Nes->Ppu.frameData), 256, 240, QImage::Format_ARGB32);
                 *display = *img;
+                delete img;
                 emit updateDisplay();
-                msleep(14);
-                Nes->Ppu.frame_complete = false;
+
                 Nes->Apu.end_frame();
                 Nes->Apu.out_count = Nes->Apu.read_samples(Nes->Apu.out_buf, BUFFER_SIZE);
                 memcpy(playBuf + playCount, (char *)Nes->Apu.out_buf, Nes->Apu.out_count * 2);
@@ -236,6 +237,9 @@ void BusClock::run()
                     playCount = 0;
                 }
                 playFlag = !playFlag;
+                
+                Nes->Ppu.frame_complete = false;
+                msleep(14);
             }
         } else {
             msleep(100);
