@@ -1,8 +1,12 @@
 # AkatuskiNes
 一个基于Qt 5.15的qml显示引擎的Nes模拟器。
-NesCore部分参考了"https://github.com/Morphlng/Qt_Nes_Emulator.git"内的代码并进行扩展。
+
+NesCore部分参考了<https://github.com/Morphlng/Qt_Nes_Emulator.git>内的代码并进行扩展。
+
 渲染采用了QQuickPaintedItem -> Qml方式渲染，数据采集采用Qthread方式采集。
+
 Nes运行速度通过控制BusClock::run()内Nes->running分支下的msleep数值进行控制。
+
 Mapper支持0、1、2、3、4、66。
 
 按键操作：
