@@ -7,7 +7,7 @@ NesCore部分参考了<https://github.com/Morphlng/Qt_Nes_Emulator.git>内的代
 
 Nes运行速度通过控制BusClock::run()内Nes->running分支下的msleep数值进行控制。
 
-Mapper支持0、1、2、3、4、66、246（封神榜）。
+Mapper支持0、1、2、3、4、66、246《封神榜》。
 
 按键操作：
 - 菜单界面下
