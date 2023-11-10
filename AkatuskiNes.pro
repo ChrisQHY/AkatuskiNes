@@ -5,12 +5,13 @@ QT += quick quick3d multimedia widgets
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        NesCore/Mapper/mapper_0.cpp \
-        NesCore/Mapper/mapper_1.cpp \
-        NesCore/Mapper/mapper_2.cpp \
-        NesCore/Mapper/mapper_3.cpp \
-        NesCore/Mapper/mapper_4.cpp \
-        NesCore/Mapper/mapper_66.cpp \
+        NesCore/Mapper/mapper_000.cpp \
+        NesCore/Mapper/mapper_001.cpp \
+        NesCore/Mapper/mapper_002.cpp \
+        NesCore/Mapper/mapper_003.cpp \
+        NesCore/Mapper/mapper_004.cpp \
+        NesCore/Mapper/mapper_066.cpp \
+        NesCore/Mapper/mapper_246.cpp \
         NesCore/Simple_Apu.cpp \
         NesCore/bus.cpp \
         NesCore/cartridge.cpp \
@@ -43,12 +44,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     NesCore/Mapper/mapper.h \
-    NesCore/Mapper/mapper_0.h \
-    NesCore/Mapper/mapper_1.h \
-    NesCore/Mapper/mapper_2.h \
-    NesCore/Mapper/mapper_3.h \
-    NesCore/Mapper/mapper_4.h \
-    NesCore/Mapper/mapper_66.h \
+    NesCore/Mapper/mapper_000.h \
+    NesCore/Mapper/mapper_001.h \
+    NesCore/Mapper/mapper_002.h \
+    NesCore/Mapper/mapper_003.h \
+    NesCore/Mapper/mapper_004.h \
+    NesCore/Mapper/mapper_066.h \
+    NesCore/Mapper/mapper_246.h \
     NesCore/Simple_Apu.h \
     NesCore/boost/config.hpp \
     NesCore/boost/cstdint.hpp \

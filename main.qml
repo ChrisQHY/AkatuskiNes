@@ -20,7 +20,7 @@ Window {
 
         Component.onCompleted: {
             nesEmu.visible = true
-            nesMenu.gameIndex = 7
+            nesMenu.gameIndex = 0
             nesEmu.startGame(nesMenu.gameIndex)
         }
 
@@ -157,8 +157,8 @@ Window {
                                 nesMenu.gameIndex--
                             }
                         } else if(event.key === Qt.Key_S) {
-                            if(nesMenu.gameIndex >= 7) {
-                                nesMenu.gameIndex = 7
+                            if(nesMenu.gameIndex >= 8) {
+                                nesMenu.gameIndex = 8
                             } else {
                                 nesMenu.gameIndex++
                             }
@@ -287,7 +287,7 @@ Window {
                 height: nes.height / 12
                 Text {
                     anchors.fill: parent
-                    text: qsTr("  ")
+                    text: qsTr("  FumoSanTaizi")
                     verticalAlignment: Text.AlignVCenter
                     color: nesMenu.gameIndex == 8 ? "red" : "grey"
                 }
